@@ -1,0 +1,22 @@
+<%= form_for @restaurant do |f| %>
+  <p>
+    <%= f.label :restaurant_name %>
+    <%= f.text_field :restaurant_name %>
+  </p>
+  <p>
+    <%= f.label :food_type %>
+    <%= f.text_field :food_type %>
+  </p>
+  <p>
+    <%= f.submit 'Create a restaurant' %>
+  </p>
+<% end %>
+
+<% @restaurants.each do |restaurant| %>
+<ul>
+  <li>
+  <%= restaurant.restaurant_name %>, <%= restaurant.food_type %>
+  </li>
+</ul>
+<% end %>
+
