@@ -31,7 +31,21 @@ feature 'Manage Restaurants' do
     expect(page).to have_no_content 'Italian'
     expect(page).to have_content 'McDonalds'
     expect(page).to have_content 'fast food'
+  end
 
-
+  scenario 'User can restaurants from a list' do
+    visit '/'
+    click_on 'Add a restaurant'
+    fill_in 'Restaurant name', with: 'Pizza Hut'
+    fill_in 'Food type', with: 'Italian'
+    click_on 'Create a restaurant'
+    expect(page).to have_content 'Pizza Hut'
+    expect(page).to have_content 'Italian'
+    click_on 'Pizza Hut'
+    expect(page).to have_content 'Pizza Hut'
+    expect(page).to have_content 'Italian'
+    click_on 'Delete restaurant'
+    expect(page).to have_no_content 'Pizza Hut'
+    expect(page).to have_no_content 'Italian'
   end
 end
